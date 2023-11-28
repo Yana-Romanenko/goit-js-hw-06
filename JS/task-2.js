@@ -11,14 +11,26 @@
 // додає його до масиву товарів у приватну властивість items об'єкта.
 // removeItem(itemToRemove) — приймає рядок з назвою товару itemToRemove і 
 // видаляє його з масиву товарів у приватній властивості items об'єкта.
-// Візьми код нижче з ініціалізацією екземпляра й викликами методів і встав
-//  його після оголошення класу для перевірки коректності роботи.
+
 
 
 class Storage {
-    
+    constructor(items) {
+        this.items = items;
+    }
+    getItems() {
+        return this.items;
+ }
+    addItem(newItem) {
+        this.items.push(newItem);
+    }
+    removeItem(itemToRemove) {
+        let index = this.items.indexOf(itemToRemove);
+        if (index > -1) {
+            this.items.splice(index, 1);
+        }
+    }
 }
-
 
 
 const storage = new Storage(["Nanitoids", "Prolonger", "Antigravitator"]);
